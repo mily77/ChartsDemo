@@ -63,6 +63,8 @@ extension ViewController : UITableViewDelegate,UITableViewDataSource {
             return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let lineChartVC = LineChartViewController()
+        self.navigationController?.pushViewController(lineChartVC, animated: true)
         
     }
 }

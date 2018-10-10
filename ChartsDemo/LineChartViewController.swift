@@ -21,6 +21,7 @@ class LineChartViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setupUI2()
+        setupButton()
     }
 }
 
@@ -273,8 +274,22 @@ extension LineChartViewController {
         //播放y轴方向动画，持续时间1秒，动画效果是先快后慢
         chartView2.animate(yAxisDuration: 1, easingOption: .easeOutCubic)
     }
+    func setupButton()   {
+        let button = UIButton(type:.system)
+        button.frame = CGRect(x:10, y:self.view.frame.height-50, width:100, height:30)
+        button.setTitle("按钮", for:.normal)
+        button.addTarget(self, action:#selector(buttonAction), for:.touchUpInside)
+        self.view.addSubview(button)
+    }
+    
+    @objc func buttonAction() {
+        //获取图片
+        let image = chartView.getChartImage(transparent: false)
+        //将其保存到系统相册中
+        UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
+    }
 }
-
+// MARK:- 代理
 extension LineChartViewController: ChartViewDelegate {
     //折线上的点选中回调
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry,

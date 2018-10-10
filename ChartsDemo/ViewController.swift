@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dataSource = ["折线图"]
+        dataSource = ["折线图","柱形图"]
         
         setupUI()
         
@@ -63,8 +63,17 @@ extension ViewController : UITableViewDelegate,UITableViewDataSource {
             return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let lineChartVC = LineChartViewController()
-        self.navigationController?.pushViewController(lineChartVC, animated: true)
+        switch indexPath.row {
+        case 0:
+            let lineChartVC = LineChartViewController()
+            self.navigationController?.pushViewController(lineChartVC, animated: true)
+        case 1:
+            let barChartVC = BarChartViewController()
+            self.navigationController?.pushViewController(barChartVC, animated: true)
+        default:
+            break
+        }
+        
         
     }
 }

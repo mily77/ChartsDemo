@@ -282,9 +282,9 @@ extension LineChartViewController {
         chartView2.animate(yAxisDuration: 1, easingOption: .easeOutCubic)
     }
     func setupButton()   {
-        let button = UIButton(type:.system)
+        let button = UIButton(type:.custom)
         button.frame = CGRect(x:10, y:self.view.frame.height-50, width:100, height:30)
-        button.setTitle("按钮", for:.normal)
+        button.setTitle("按钮", for:[])
         button.addTarget(self, action:#selector(buttonAction), for:.touchUpInside)
         self.view.addSubview(button)
     }

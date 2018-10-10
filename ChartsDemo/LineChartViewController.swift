@@ -58,7 +58,7 @@ extension LineChartViewController {
         
         //生成第一条折线数据
         var dataEntries = [ChartDataEntry]()
-        for i in 0..<10 {
+        for i in 0..<100 {
             let y = arc4random()%100
             let entry = ChartDataEntry.init(x: Double(i), y: Double(y))
             dataEntries.append(entry)
@@ -83,7 +83,7 @@ extension LineChartViewController {
         
         //生成第二条折线数据
         var dataEntries2 = [ChartDataEntry]()
-        for i in 0..<10 {
+        for i in 0..<100 {
             let y = arc4random()%100
             let entry = ChartDataEntry.init(x: Double(i), y: Double(y))
             dataEntries2.append(entry)
@@ -118,6 +118,11 @@ extension LineChartViewController {
         //设置折现图数据
         chartView.data = chartData
         
+        //图表最多显示10个点
+        chartView.setVisibleXRangeMaximum(10)
+        //默认显示最一个数据
+        chartView.moveViewToX(99)
+        
         chartView.xAxis.labelPosition = .bottom //x轴显示在下方
 //        chartView.xAxis.labelPosition = .bottomInside //x轴显示在下方，且文字在内侧
         chartView.xAxis.axisLineWidth = 2 //x轴宽度
@@ -128,8 +133,8 @@ extension LineChartViewController {
         chartView.xAxis.labelTextColor = .orange //刻度文字颜色
         chartView.xAxis.labelFont = .systemFont(ofSize: 14) //刻度文字大小
         chartView.xAxis.labelRotationAngle = -30 //刻度文字倾斜角度
-        chartView.xAxis.gridColor = .orange //x轴对应网格线的颜色
-        chartView.xAxis.gridLineWidth = 2 //x轴对应网格线的大小
+//        chartView.xAxis.gridColor = .orange //x轴对应网格线的颜色
+//        chartView.xAxis.gridLineWidth = 2 //x轴对应网格线的大小
 //        chartView.xAxis.gridLineDashLengths = [4,2]  //虚线各段长度
 //        chartView.xAxis.drawGridLinesEnabled = false //不绘制网格线
         
@@ -145,13 +150,13 @@ extension LineChartViewController {
 //        chartView.leftAxis.axisMaximum = 100 //最大刻度值
 //        chartView.leftAxis.granularity = 50 //最小间隔
         chartView.leftAxis.drawZeroLineEnabled = true //绘制0刻度线
-        chartView.leftAxis.zeroLineColor = .orange  //0刻度线颜色
-        chartView.leftAxis.zeroLineWidth = 2 //0刻度线线宽
+//        chartView.leftAxis.zeroLineColor = .orange  //0刻度线颜色
+//        chartView.leftAxis.zeroLineWidth = 2 //0刻度线线宽
         chartView.leftAxis.zeroLineDashLengths = [4, 2] //0刻度线使用虚线样式
-        chartView.leftAxis.labelTextColor = .orange //刻度文字颜色
-        chartView.leftAxis.labelFont = .systemFont(ofSize: 14) //刻度文字大小
-        chartView.leftAxis.gridColor = .orange //左Y轴对应网格线的颜色
-        chartView.leftAxis.gridLineWidth = 2 //右Y轴对应网格线的大小
+//        chartView.leftAxis.labelTextColor = .orange //刻度文字颜色
+//        chartView.leftAxis.labelFont = .systemFont(ofSize: 14) //刻度文字大小
+//        chartView.leftAxis.gridColor = .orange //左Y轴对应网格线的颜色
+//        chartView.leftAxis.gridLineWidth = 2 //右Y轴对应网格线的大小
 //        chartView.xAxis.gridLineDashLengths = [4,2]  //虚线各段长度
 //        chartView.leftAxis.drawGridLinesEnabled = false //不绘制网格线
 //        let formatter3 = NumberFormatter()  //自定义格式
@@ -176,13 +181,30 @@ extension LineChartViewController {
         limitLine2.lineColor = .blue //线条颜色
         limitLine2.lineDashLengths = [4, 2] //虚线样式
         
-        let formatter2 = NumberFormatter()  //自定义格式
-        formatter2.positivePrefix = "#"  //数字前缀
-        chartView.xAxis.valueFormatter = DefaultAxisValueFormatter(formatter: formatter2)
-        //自定义刻度标签文字
-        let xValues = ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月"]
-        chartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: xValues)
+//        let formatter2 = NumberFormatter()  //自定义格式
+//        formatter2.positivePrefix = "#"  //数字前缀
+//        chartView.xAxis.valueFormatter = DefaultAxisValueFormatter(formatter: formatter2)
+//        //自定义刻度标签文字
+//        let xValues = ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月"]
+//        chartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: xValues)
         
+        highlightCenterValue()
+        
+        //播放x轴方向动画，持续时间5秒
+        chartView.animate(xAxisDuration: 5)
+        //播放y轴方向动画，持续时间1秒
+        chartView.animate(yAxisDuration: 3)
+    }
+    
+    //自动选中图表中央的数据点
+    func highlightCenterValue() {
+        //获取中点坐标
+        let x = Double(chartView.bounds.width/2)
+        let selectionPoint = CGPoint(x: x, y: 0)
+        //获取最接近中点位置的数据点
+        let h = chartView.getHighlightByTouchPoint(selectionPoint)
+        //将这个数据点高亮（同时自动调用 chartValueSelected 这个代理方法）
+        chartView.highlightValue(h, callDelegate: true)
     }
     
     func setupUI2() {
@@ -245,6 +267,11 @@ extension LineChartViewController {
         
         //设置折现图数据
         chartView2.data = chartData
+        
+        //x轴、y轴方向动画一起播放，持续时间都是1秒
+        chartView2.animate(xAxisDuration: 1, yAxisDuration: 1)
+        //播放y轴方向动画，持续时间1秒，动画效果是先快后慢
+        chartView2.animate(yAxisDuration: 1, easingOption: .easeOutCubic)
     }
 }
 
@@ -265,8 +292,33 @@ extension LineChartViewController: ChartViewDelegate {
         //重新渲染表格
         chartView.data?.notifyDataChanged()
         chartView.notifyDataSetChanged()
+        
+        //显示该点的MarkerView标签
+        self.showMarkerView(value: "\(entry.y)")
+        
+        //将该点居中（其实就是将该点左边第5个点移动道图表左侧）
+        self.chartView.moveViewToAnimated(xValue: entry.x - 5 , yValue: 0,
+                                          axis: .left, duration: 1)
     }
-    
+    //显示MarkerView标签
+    func showMarkerView(value:String){
+//        let marker = MarkerView(frame: CGRect(x: 20, y: 20, width: 80, height: 20))
+        let marker = BalloonMarker(color: UIColor(white: 180/255, alpha: 1), font: UIFont.systemFont(ofSize: 12), textColor: UIColor.white, insets: UIEdgeInsets(top: 8, left: 8, bottom: 20, right: 8))
+        
+        marker.chartView = self.chartView
+        
+        marker.minimumSize = CGSize(width: 80, height: 40)
+        marker.setLabel("数据:\(value)")
+
+//        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 80, height: 20))
+//        label.text = "数据：\(value)"
+//        label.textColor = UIColor.white
+//        label.font = UIFont.systemFont(ofSize: 12)
+//        label.backgroundColor = UIColor.gray
+//        label.textAlignment = .center
+//        marker.addSubview(label)
+        self.chartView.marker = marker
+    }
     //折线上的点取消选中回调
     func chartValueNothingSelected(_ chartView: ChartViewBase) {
         print("取消选中的数据")
@@ -279,5 +331,19 @@ extension LineChartViewController: ChartViewDelegate {
         //重新渲染表格
         chartView.data?.notifyDataChanged()
         chartView.notifyDataSetChanged()
+        
+        
+    }
+    
+    //图表通过手势缩放后的回调
+    func chartScaled(_ chartView: ChartViewBase, scaleX: CGFloat, scaleY: CGFloat) {
+        print("图表缩放了")
+    }
+    
+    //图表通过手势拖动后的回调
+    func chartTranslated(_ chartView: ChartViewBase, dX: CGFloat, dY: CGFloat) {
+        print("图表移动了")
+        //自动选中图表中央的数据点
+        highlightCenterValue()
     }
 }

@@ -10,6 +10,7 @@
 		03E3E0AB04161EC9FB8AB472 /* Pods_ChartsDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6B28F1D04C85E4F6239EDA1 /* Pods_ChartsDemoUITests.framework */; };
 		3E2F8C104551D7DD90AB9D93 /* Pods_ChartsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8D257CC821916F39C53AEB3 /* Pods_ChartsDemo.framework */; };
 		52EF77392F6434C39E14DB1F /* Pods_ChartsDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42B218C278BF560BE37444BC /* Pods_ChartsDemoTests.framework */; };
+		A13138C6216D9557006904AD /* BalloonMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13138C5216D9557006904AD /* BalloonMarker.swift */; };
 		A145B32A216C444200851067 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A145B329216C444200851067 /* AppDelegate.swift */; };
 		A145B32C216C444200851067 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A145B32B216C444200851067 /* ViewController.swift */; };
 		A145B32F216C444200851067 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A145B32D216C444200851067 /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 		67655FC9B0E5A54BB078256E /* Pods-ChartsDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChartsDemoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChartsDemoUITests/Pods-ChartsDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		73278EFCBC0220201143F92D /* Pods-ChartsDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChartsDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChartsDemoTests/Pods-ChartsDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		938331A89F9F1798E9C119DF /* Pods-ChartsDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChartsDemoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChartsDemoUITests/Pods-ChartsDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A13138C5216D9557006904AD /* BalloonMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalloonMarker.swift; sourceTree = "<group>"; };
 		A145B326216C444200851067 /* ChartsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChartsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A145B329216C444200851067 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A145B32B216C444200851067 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				A145B332216C444300851067 /* LaunchScreen.storyboard */,
 				A145B335216C444300851067 /* Info.plist */,
 				A145B357216C572500851067 /* LineChartViewController.swift */,
+				A13138C5216D9557006904AD /* BalloonMarker.swift */,
 			);
 			path = ChartsDemo;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				A145B32C216C444200851067 /* ViewController.swift in Sources */,
 				A145B358216C572500851067 /* LineChartViewController.swift in Sources */,
 				A145B32A216C444200851067 /* AppDelegate.swift in Sources */,
+				A13138C6216D9557006904AD /* BalloonMarker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

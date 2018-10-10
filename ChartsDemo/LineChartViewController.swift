@@ -111,6 +111,13 @@ extension LineChartViewController {
         //将渐变色作为填充对象s
         chartDataSet2.fill = Fill.fillWithLinearGradient(gradient!, angle: 90.0)
         
+        //两组颜色结合使用（共9色）
+//        chartDataSet2.colors = ChartColorTemplates.pastel() + ChartColorTemplates.material()
+//        let color = ChartColorTemplates.colorFromString("rgb(245,252,120)")
+//        chartDataSet2.colors = [color]
+        //使用绿色作为折线线条颜色
+        chartDataSet2.colors = [ChartColorTemplates.colorful()[3]]
+        
         //目前折线图包括2根折线
         let chartData = LineChartData(dataSets: [chartDataSet1, chartDataSet2])
  

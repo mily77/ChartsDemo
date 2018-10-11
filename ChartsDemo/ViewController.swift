@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dataSource = ["折线图","柱状图","散点图","气泡图"]
+        dataSource = ["折线图","柱状图","散点图","气泡图","烛形图"]
         
         setupUI()
         
@@ -76,6 +76,10 @@ extension ViewController : UITableViewDelegate,UITableViewDataSource {
         case 3:
             let bubbleChartVC = BubbleChartViewController()
             self.navigationController?.pushViewController(bubbleChartVC, animated: true)
+        case 4:
+            let candleStickChartVC = CandleStickChartViewController()
+            self.navigationController?.pushViewController(candleStickChartVC, animated: true)
+            
         default:
             break
         }

@@ -24,6 +24,7 @@
 		A15C8652216EE5A500A8810B /* BubbleChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15C8651216EE5A500A8810B /* BubbleChartViewController.swift */; };
 		A15C8654216EEED300A8810B /* CandleStickChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15C8653216EEED300A8810B /* CandleStickChartViewController.swift */; };
 		A15C8656216EF49300A8810B /* CombinedChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15C8655216EF49300A8810B /* CombinedChartViewController.swift */; };
+		A15C8658216EFEFB00A8810B /* PieChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15C8657216EFEFB00A8810B /* PieChartViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		A15C8651216EE5A500A8810B /* BubbleChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleChartViewController.swift; sourceTree = "<group>"; };
 		A15C8653216EEED300A8810B /* CandleStickChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CandleStickChartViewController.swift; sourceTree = "<group>"; };
 		A15C8655216EF49300A8810B /* CombinedChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinedChartViewController.swift; sourceTree = "<group>"; };
+		A15C8657216EFEFB00A8810B /* PieChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartViewController.swift; sourceTree = "<group>"; };
 		A6B28F1D04C85E4F6239EDA1 /* Pods_ChartsDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChartsDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8D257CC821916F39C53AEB3 /* Pods_ChartsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChartsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5157A7E8754572F9B8DD614 /* Pods-ChartsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChartsDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChartsDemo/Pods-ChartsDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				A15C8651216EE5A500A8810B /* BubbleChartViewController.swift */,
 				A15C8653216EEED300A8810B /* CandleStickChartViewController.swift */,
 				A15C8655216EF49300A8810B /* CombinedChartViewController.swift */,
+				A15C8657216EFEFB00A8810B /* PieChartViewController.swift */,
 				A145B32D216C444200851067 /* Main.storyboard */,
 				A145B330216C444300851067 /* Assets.xcassets */,
 				A145B332216C444300851067 /* LaunchScreen.storyboard */,
@@ -402,6 +405,7 @@
 				A15C8650216EDCFB00A8810B /* ScatterChartViewController.swift in Sources */,
 				A145B32A216C444200851067 /* AppDelegate.swift in Sources */,
 				A15C8654216EEED300A8810B /* CandleStickChartViewController.swift in Sources */,
+				A15C8658216EFEFB00A8810B /* PieChartViewController.swift in Sources */,
 				A13138C6216D9557006904AD /* BalloonMarker.swift in Sources */,
 				A15C8656216EF49300A8810B /* CombinedChartViewController.swift in Sources */,
 				A11714B3216DE74500968124 /* BarChartViewController.swift in Sources */,

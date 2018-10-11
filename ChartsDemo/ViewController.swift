@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dataSource = ["折线图","柱形图"]
+        dataSource = ["折线图","柱状图","散点图"]
         
         setupUI()
         
@@ -70,6 +70,9 @@ extension ViewController : UITableViewDelegate,UITableViewDataSource {
         case 1:
             let barChartVC = BarChartViewController()
             self.navigationController?.pushViewController(barChartVC, animated: true)
+        case 2:
+            let scatterChartVC = ScatterChartViewController()
+            self.navigationController?.pushViewController(scatterChartVC, animated: true)
         default:
             break
         }

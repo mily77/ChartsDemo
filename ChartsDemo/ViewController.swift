@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dataSource = ["折线图","柱状图","散点图"]
+        dataSource = ["折线图","柱状图","散点图","气泡图"]
         
         setupUI()
         
@@ -73,6 +73,9 @@ extension ViewController : UITableViewDelegate,UITableViewDataSource {
         case 2:
             let scatterChartVC = ScatterChartViewController()
             self.navigationController?.pushViewController(scatterChartVC, animated: true)
+        case 3:
+            let bubbleChartVC = BubbleChartViewController()
+            self.navigationController?.pushViewController(bubbleChartVC, animated: true)
         default:
             break
         }

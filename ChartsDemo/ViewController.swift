@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dataSource = ["折线图","柱状图","散点图","气泡图","烛形图","混合图表","饼状图"]
+        dataSource = ["折线图","柱状图","散点图","气泡图","烛形图","混合图表","饼状图","雷达图"]
         
         setupUI()
         
@@ -85,6 +85,9 @@ extension ViewController : UITableViewDelegate,UITableViewDataSource {
         case 6:
             let pieChartVC = PieChartViewController()
             self.navigationController?.pushViewController(pieChartVC, animated: true)
+        case 7:
+            let radarChart = RadarChartViewController()
+            self.navigationController?.pushViewController(radarChart, animated: true)
         default:
             break
         }
